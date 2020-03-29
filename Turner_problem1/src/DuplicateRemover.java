@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class DuplicateRemover {
 	
 	private ArrayList<String> uniqueWords;
+	private boolean duplicate;
 
 	
 	DuplicateRemover(){
@@ -27,7 +28,7 @@ public class DuplicateRemover {
 		
 		while(in.hasNext()) {
 			tmpWord = in.next();
-			boolean duplicate = false;
+			duplicate = false;
 			for (String word: uniqueWords) {
 				if(word.toLowerCase().matches(tmpWord.toLowerCase())) {
 					duplicate = true;
@@ -44,6 +45,7 @@ public class DuplicateRemover {
 	public void write(String outputFile) {		
 		try {
 			FileWriter writer = new FileWriter(outputFile);
+			System.out.println("All unique words found are: \n\n");
 			for(int i = 0; i < uniqueWords.size(); i++) {
 				writer.write(uniqueWords.get(i) + "\n");
 			}				
